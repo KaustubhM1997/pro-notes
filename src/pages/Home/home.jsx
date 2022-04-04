@@ -5,9 +5,12 @@ const Home = () => {
   return (
     <>
       <nav className="nav-container">
+        <Link className="link-style" to= "/"> 
         <div className="brand-name">
           Pro<span style={{ color: "black" }}>NOTES</span>{" "}
         </div>
+        </Link>
+        
         <div className="nav-input">
           <input placeholder="Search items" type="search" />
         </div>

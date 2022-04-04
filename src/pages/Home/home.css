@@ -88,6 +88,11 @@
   margin-right: 1rem;
 }
 
+.link-style {
+
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 931px) {
   .nav-input {
     display: none;
