@@ -1,0 +1,95 @@
+.nav-container {
+  margin: 0;
+}
+
+.brand-name {
+  font-size: 2rem;
+  margin-top: 0.2rem;
+}
+
+.nav-input {
+  margin-left: 0;
+}
+
+.main-wrapper {
+  flex-grow: 1;
+}
+
+.child-wrapper {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+}
+
+.aside-wrapper {
+  height: 100vh;
+  display: flex;
+  flex: 0.3 1;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.aside-list {
+  list-style-type: none;
+  width: 100%;
+}
+
+.aside-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: inherit;
+}
+
+.nav-cta .primary-btn {
+  padding: 0.3rem 1.3rem;
+}
+
+.nav-cta .primary-btn:hover {
+  background-color: var(--secondary-hover);
+}
+
+.aside-item {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  background-color: var(--secondary-hover);
+  border-radius: 0 1.2rem 1.2rem 0;
+}
+
+.aside-link .active {
+  color: var(--color-white);
+}
+
+.create-note-btn {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 1rem 3.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  margin-left: 1rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.create-note-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.aside-icons {
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 931px) {
+  .nav-input {
+    display: none;
+  }
+}

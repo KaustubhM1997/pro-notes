@@ -1,5 +1,4 @@
 import Mockman from "mockman-js";
-import "./routes.css";
 import {Routes, Route} from "react-router-dom";
 import { Home } from "../pages/Home/home";
 import { NoMatch } from "../pages/NoMatch/nomatch";
@@ -8,9 +7,8 @@ import { Signup } from "../pages/Signup/signup";
 import { Archive } from "../pages/Archive/archive";
 import { Label } from "../pages/Label/label";
 import { Trash } from "../pages/Trash/trash";
-
-
-// import "../App.css";
+import "../App.css";
+import "./routes.css";
 
 const ParentRouter = () => {
   return (
