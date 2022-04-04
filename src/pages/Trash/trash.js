@@ -1,0 +1,6 @@
+const Trash = () => {
+
+
+}
+
+export {Trash};
