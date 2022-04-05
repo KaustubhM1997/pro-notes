@@ -1,12 +1,14 @@
 import Mockman from "mockman-js";
-import {Routes, Route} from "react-router-dom";
-import { Home } from "../pages/Home/home";
-import { NoMatch } from "../pages/NoMatch/nomatch";
-import { Login } from "../pages/Login/login";
-import { Signup } from "../pages/Signup/signup";
-import { Archive } from "../pages/Archive/archive";
-import { Label } from "../pages/Label/label";
-import { Trash } from "../pages/Trash/trash";
+import { Routes, Route } from "react-router-dom";
+import {
+  Home,
+  Label,
+  NoMatch,
+  Login,
+  Signup,
+  Archive,
+  Trash,
+} from "../pages/Global pages/global-pages";
 import "../App.css";
 import "./routes.css";
 
