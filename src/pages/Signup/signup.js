@@ -1,0 +1,6 @@
+const Signup = () => {
+
+
+}
+
+export {Signup};

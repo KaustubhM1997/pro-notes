@@ -1,0 +1,8 @@
+
+
+const Label = () => {
+
+    
+}
+
+export {Label};
