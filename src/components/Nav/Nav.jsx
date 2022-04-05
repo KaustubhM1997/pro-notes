@@ -14,7 +14,7 @@ const Nav = () => {
         <input placeholder="Search items" type="search" />
       </div>
       <div className="nav-cta">
-        <a className="primary-btn" href="">
+        <a className="primary-btn" href="/login-page">
           Login
         </a>
       </div>
