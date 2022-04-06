@@ -35,9 +35,19 @@ const Login = () => {
       //sending data to backend using post that we get from user and receiving a response
 
       const response = await axios.post(`/api/auth/login`, {
-        email: input.email, ///se send these values to the backend that we get from the user to check whether this user exists. The test credentials are adarsh balika, this user exists on the backend.
+        email: input.email, ///we send these values to the backend that we get from the user to check whether this user exists. The test credentials are adarsh balika, this user exists on the backend.
         password: input.password,
+
+
+       
       });
+
+      console.log(response, "here");
+
+
+     
+
+      
 
       //putting the encoded token we get from the backend into localstorage
 
@@ -52,7 +62,7 @@ const Login = () => {
       }));
       navigate("/"); //after the user has logged in, we navigate him to the home page
     } catch (errors) {
-      setErrors(errors.response.data.createError); // we get the position this from above for status code 500
+      // setErrors(errors.response.data.createError); // we get the position this from above for status code 500
     }
   };
 
