@@ -19,7 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
 
-  const loginHandler = async () => {
+  function loginHandler() {
     try {
       //setting the auth value
 
@@ -43,11 +43,6 @@ const Login = () => {
       });
 
       console.log(response, "here");
-
-
-     
-
-      
 
       //putting the encoded token we get from the backend into localstorage
 
