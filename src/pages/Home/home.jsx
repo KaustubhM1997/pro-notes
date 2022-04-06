@@ -3,9 +3,21 @@ import { Aside } from "../../components/Aside/Aside";
 
 const Home = () => {
   return (
-    <>
-      <Aside />
-    </>
+    
+
+
+    <div>Home</div>
+    
+    
+
+
+
+
+
+
+
+     
+  
   );
 };
 

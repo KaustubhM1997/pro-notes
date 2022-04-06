@@ -11,7 +11,7 @@ const Login = () => {
 
   const [input, setInput] = useState({
     email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    password: "adarshBalika123",
   });
 
   const { setAuth } = useAuth();
@@ -19,7 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
 
-  function loginHandler() {
+  async function loginHandler() {
     try {
       //setting the auth value
 
@@ -34,12 +34,9 @@ const Login = () => {
 
       //sending data to backend using post that we get from user and receiving a response
 
-      const response = await axios.post(`/api/auth/login`, {
+      const response = await axios.post("/api/auth/login", {
         email: input.email, ///we send these values to the backend that we get from the user to check whether this user exists. The test credentials are adarsh balika, this user exists on the backend.
         password: input.password,
-
-
-       
       });
 
       console.log(response, "here");
@@ -57,9 +54,10 @@ const Login = () => {
       }));
       navigate("/"); //after the user has logged in, we navigate him to the home page
     } catch (errors) {
+      console.log(errors);
       // setErrors(errors.response.data.createError); // we get the position this from above for status code 500
     }
-  };
+  }
 
   return (
     <div className="login-container">

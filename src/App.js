@@ -6,8 +6,19 @@ import { ParentRouter } from "./Routes/routes";
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <ParentRouter />
+      <Nav />
+      <div className="child-wrapper">
+        <Aside />
+
+        <div className="content-wrapper">
+
+        <ParentRouter />
+
+
+        </div>
+      </div>
+
+      
     </div>
   );
 }

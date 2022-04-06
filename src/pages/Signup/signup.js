@@ -29,7 +29,7 @@ const Signup = () => {
       setErrors(""); // no error as well
 
       const response = await axios.post(`/api/auth/signup`, {
-        //we post the user details to the server and in response get the token which we store in the local storage. 
+        //we post the user details to the server and in response get the token which we store in the local storage.
 
         name: initialValue.name,
         email: initialValue.email,
