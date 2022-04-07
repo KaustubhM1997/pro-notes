@@ -1,0 +1,52 @@
+@import url(../Login/login.css);
+
+.signup-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  border: 1px solid;
+  width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  box-shadow: var(--full-box-shadow);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+}
+
+.signup-btn {
+  padding: 0.7rem 5.8rem;
+  color: var(--color-white);
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary-btn {
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.signup-condition {
+  display: flex;
+  margin-top: -0.5rem;
+}
+
+.new-account-signup {
+  margin-top: 0.2rem;
+  margin-right: 2.5rem;
+}
+
+.new-account-signup .text {
+  text-decoration: none;
+  color: var(--badge-background);
+  font-weight: bold;
+  margin-left: 2.5rem;
+}

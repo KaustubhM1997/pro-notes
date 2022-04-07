@@ -1,0 +1,117 @@
+/* @import url(../../main.css); */
+
+/* :root {
+  --light-grey: #e2e8f0;
+  --button-hover: #be185d;
+  --box-shadow: 0px 0px 5px 5px var(--light-grey);
+} */
+
+.login-container {
+  margin-top: 5rem;
+  display: flex;
+  /* flex-direction: column; */
+  min-height: 62vh;
+  border: 1px solid;
+  width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  box-shadow: var(--full-box-shadow);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+  position: relative;
+}
+
+.login-header {
+  margin: 1.5rem 0 1rem 9rem;
+  display: flex;
+  position: absolute;
+}
+
+.login-details {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.7rem;
+  margin-top: 4rem;
+}
+
+.subdetails-header {
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.login-input {
+  border: none;
+  border: 1px solid var(--primary-color);
+  padding: 0.4rem;
+  width: 100%;
+  margin-left: -0.1rem;
+}
+
+.forgot-password {
+  display: flex;
+  margin-top: 0.3rem;
+}
+
+.password-remember,
+.forgot-password-text {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-left: 0.2rem;
+}
+
+.forgot-password-text {
+  margin-left: 1.9rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.btn-container {
+  margin-top: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-btn {
+  padding: 0.6rem 9rem;
+  color: var(--color-white);
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-btn-test {
+  padding: 0.5rem 4rem;
+  color: var(--color-white);
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.login-btn:hover,
+.login-btn-test:hover {
+  background-color: var(--primary-hover);
+}
+
+.new-account {
+  margin-left: 4.8rem;
+  margin-top: 0.5rem;
+  position: absolute;
+  margin-top: 19rem;
+}
+
+.new-account .text {
+  text-decoration: none;
+  color: var(--badge-background);
+  font-weight: bold;
+}

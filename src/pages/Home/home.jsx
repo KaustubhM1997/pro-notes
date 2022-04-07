@@ -1,12 +1,7 @@
 import "./home.css";
-import { Aside } from "../../components/Aside/Aside";
 
 const Home = () => {
-  return (
-    <>
-      <Aside />
-    </>
-  );
+  return <div>Home again!</div>;
 };
 
 export { Home };
