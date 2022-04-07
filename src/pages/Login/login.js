@@ -5,7 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../contexts/auth-context";
 import { Link } from "react-router-dom";
 import "./login.css";
-import {toast} from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   //setting the initial values for email and password
@@ -40,8 +40,7 @@ const Login = () => {
         password: input.password,
       });
 
-
-      toast.success('Login successful!');
+      toast.success("Login successful!");
 
       //putting the encoded token we get from the backend into localstorage
 

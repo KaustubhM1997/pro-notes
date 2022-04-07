@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
   // <!-- Signup CARD -->
@@ -36,6 +37,8 @@ const Signup = () => {
         password: initialValue.password,
         confirmPassword: initialValue.confirmPassword,
       });
+
+      toast.success("Signup successful!");
 
       localStorage.setItem("TOKEN", response.data.encodedToken); // we then store the token on client in localstorage, where "TOKEN" is the key and the other is value we get from the backend
 

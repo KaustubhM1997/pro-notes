@@ -10,7 +10,6 @@ function App() {
       <Nav />
       <div className="child-wrapper">
         <Aside />
-
         <div className="content-wrapper">
           <ParentRouter />
           <Toaster
