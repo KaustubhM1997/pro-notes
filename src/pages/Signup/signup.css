@@ -26,6 +26,11 @@
   cursor: pointer;
 }
 
+.primary-btn {
+
+  cursor: pointer;
+}
+
 .signup-btn:hover {
   background-color: var(--primary-hover);
 }
