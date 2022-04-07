@@ -90,6 +90,52 @@
     text-decoration: none;
 }
 
+.note-wrapper {
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  /* flex-direction: column; */
+  /* width: 30rem; */
+  margin-top: 2rem;
+  /* width: max-content; */
+}
+
+.notes-input-form {
+
+  box-shadow: var(--full-box-shadow);
+  width: 35rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.8rem;
+ 
+  
+}
+
+
+.notes-input-form input {
+
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+
+.notes-input-form textarea {
+
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none;
+  resize: none;
+  
+}
+
 @media only screen and (max-width: 931px) {
   .nav-input {
     display: none;
