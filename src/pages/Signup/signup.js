@@ -57,14 +57,14 @@ const Signup = () => {
   };
 
   return (
-    <div class="signup-container">
-      <h2 class="login-header">Signup</h2>
+    <div className="signup-container">
+      <h2 className="login-header">Signup</h2>
 
-      <div class="login-details">
-        <div class="login-subdetails">
-          <p class="subdetails-header">Name</p>
+      <div className="login-details">
+        <div className="login-subdetails">
+          <p className="subdetails-header">Name</p>
           <input
-            class="login-input"
+            className="login-input"
             placeholder="Kaustubh Manglurkar"
             value={initialValue.name}
             type="text"
@@ -74,10 +74,10 @@ const Signup = () => {
           />
         </div>
 
-        <div class="login-subdetails">
-          <p class="subdetails-header">Email address</p>
+        <div className="login-subdetails">
+          <p className="subdetails-header">Email address</p>
           <input
-            class="login-input"
+            className="login-input"
             placeholder="kaustubh@gmail.com"
             type="email"
             value={initialValue.email}
@@ -87,10 +87,10 @@ const Signup = () => {
           />
         </div>
 
-        <div class="login-subdetails">
-          <p class="subdetails-header">Password</p>
+        <div className="login-subdetails">
+          <p className="subdetails-header">Password</p>
           <input
-            class="login-input"
+            className="login-input"
             placeholder="********"
             type="password"
             value={initialValue.password}
@@ -100,8 +100,8 @@ const Signup = () => {
           />
         </div>
 
-        <div class="login-subdetails">
-          <p class="subdetails-header">Confirm Password</p>
+        <div className="login-subdetails">
+          <p className="subdetails-header">Confirm Password</p>
           <input
             value={initialValue.confirmaPassword}
             onChange={(e) =>
@@ -110,26 +110,26 @@ const Signup = () => {
                 confirmPassword: e.target.value,
               })
             }
-            class="login-input"
+            className="login-input"
             placeholder="********"
             type="password"
           />
         </div>
 
-        <div class="signup-condition">
+        <div className="signup-condition">
           <input required type="checkbox" />
-          <p class="password-remember">I accept all Terms & Conditions</p>
+          <p className="password-remember">I accept all Terms & Conditions</p>
         </div>
 
-        <div class="signup-btn-container">
-          <button onClick={signUpHandler} class="signup-btn">
+        <div className="signup-btn-container">
+          <button onClick={signUpHandler} className="signup-btn">
             Create Account
           </button>
         </div>
 
-        <div class="new-account-signup">
+        <div className="new-account-signup">
           <p>
-            <Link class="text" to="/login-page">
+            <Link className="text" to="/login-page">
               Already have an account?
             </Link>
           </p>
