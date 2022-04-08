@@ -1,0 +1,45 @@
+.main-note-card-wrapper {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px ssolid black;
+    border-radius: 0.3rem;
+    background-color: var(--color-white);
+    word-break: break-all; 
+    /* this prevents word overflow */
+}
+
+.note-card-content-wrapper {
+
+    display: grid;
+    grid-template-columns: 8fr 0.5fr;
+}
+
+.main-note-card-wrapper:hover {
+    box-shadow: var(--full-box-shadow);
+}
+
+.main-note-card-wrapper:active {
+
+    transform: scale(0.8);
+}
+
+.notes-title {
+
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.notes-text {
+
+    word-break: break-all;
+}
+
+.pinned-note {
+
+    height: 1.5rem;
+    width: 1.5rem;
+}
+

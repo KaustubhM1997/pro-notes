@@ -96,10 +96,9 @@
   align-items: center;
 
   justify-content: center;
-  /* flex-direction: column; */
-  /* width: 30rem; */
-  margin-top: 2rem;
-  /* width: max-content; */
+ 
+  margin: 2rem 0;
+ 
 }
 
 .notes-input-form {
