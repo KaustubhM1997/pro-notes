@@ -6,10 +6,21 @@ const EditNote = () => {
 
    const {editNote, dispatchNotes, notesState: {currentEditNote}} = useNotes();
 
+
+   const editSubmitFormHandler = (e) => {
+     e.preventDefault();
+     if(currentEditNote.title.trim() || currentEditNote.note.trim()){
+       editNote(currentEditNote) //edit note handler
+       dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: false, currentEditNote: {title: "", note: ""}} });
+     }
+
+
+   }
+
   return (
     <div className="main-wrapper">
       <div className="note-wrapper">
-        <form className="notes-input-form" onSubmit={submitEditFormHandler}>
+        <form className="notes-input-form" onSubmit={editSubmitFormHandler}>
           <input
             type="text"
             placeholder="Title"

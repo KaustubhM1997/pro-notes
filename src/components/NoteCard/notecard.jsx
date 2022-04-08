@@ -7,25 +7,31 @@ const NoteCard = ({ noteProp }) => {
   const { dispatchNotes } = useNotes();
 
   return (
-    <div className="main-note-card-wrapper">
+    <div className="main-note-card-wrapper" onClick={() => dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: true, currentEditNote: noteProp}})}>
       <div className="note-card-content-wrapper">
-        <>
-          <div className="notes-title">{title}</div>
-          <div className="notes-text">{note}</div>
-        </>
+        <div className="note-card-row1">
+          <div className="note-card-title-pin">
 
-        <button className="pinned-note">
-          <i class="fa-solid fa-map-pin"></i>
-        </button>
+          <div className="notes-title">{title}</div>
+          <button title="Pin note" className="pinned-note">
+            <i class="fa-solid fa-map-pin"></i>
+          </button>
+
+
+          </div>
+         
+        </div>
+
+        <div className="notes-text">{note}</div>
       </div>
 
       <div className="note-card-footer">
         <span>{createdAt}</span>
         <div className="note-card-cta-buttons">
-          <i class="fa-solid fa-palette operation-btn"></i>
-          <i class="fa-solid fa-tags operation-btn-2"></i>
-          <i class="fa-solid fa-box-archive operation-btn"></i>
-          <i class="fa-solid fa-trash operation-btn"></i>
+          <i title="Add color" class="fa-solid fa-palette note-card-btn"></i>
+          <i title="Add a label" class="fa-solid fa-tags note-card-btn"></i>
+          <i title="Archive note" class="fa-solid fa-box-archive note-card-btn"></i>
+          <i title="Move to Trash" class="fa-solid fa-trash note-card-btn"></i>
         </div>
       </div>
     </div>
