@@ -8,6 +8,9 @@ const NoteCard = ({ noteProp }) => {
 
   return (
     <div className="main-note-card-wrapper" onClick={() => dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: true, currentEditNote: noteProp}})}>
+     {/* This creates the modal. We set the editing to true here which was initialized with false and then the currentedited note which was initialized with empty strings gets the same things as this notescard from the prop.  */}
+
+     {/* From here we go to the edit note component */}
       <div className="note-card-content-wrapper">
         <div className="note-card-row1">
           <div className="note-card-title-pin">

@@ -187,3 +187,13 @@ notes-btn:disabled {
     display: none;
   }
 }
+
+@media only screen and (max-width: 695px){
+
+  .aside-wrapper {
+
+    display: none;
+  }
+
+
+}

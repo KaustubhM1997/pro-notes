@@ -1,24 +1,42 @@
 import "./editnote.css";
 import "../../pages/Home/home.css";
 import { useNotes } from "../../contexts/notes-context";
+import { useRef } from "react";
+
+
+// This is the exact same component as the note input with a cancel button
 
 const EditNote = () => {
 
-   const {editNote, dispatchNotes, notesState: {currentEditNote}} = useNotes();
+   const {editNote, dispatchNotes, notesState} = useNotes();
+
+   const {currentEditNote} = notesState;
+
+   //The current edit note is nothing but the modal that pops up
+
+
+   const textInputRef = useRef();
 
 
    const editSubmitFormHandler = (e) => {
      e.preventDefault();
+     console.log(currentEditNote, "done");
      if(currentEditNote.title.trim() || currentEditNote.note.trim()){
-       editNote(currentEditNote) //edit note handler
-       dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: false, currentEditNote: {title: "", note: ""}} });
+       editNote(currentEditNote) //edit note handler is triggered and the edited note gets posted to backend
+
+       //this gets triggered when we click add note in the modal
+       dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: false , currentEditNote: {title: "", note: ""}}   }); //this sets the edited note in the view after the modal disappears //WHY ARE THE NOTES DISAPPEARING after I set this to true
+
+     
+
+       console.log(currentEditNote, "NOTE");
      }
 
 
    }
 
   return (
-    <div className="main-wrapper">
+    <div className="edit-note">
       <div className="note-wrapper">
         <form className="notes-input-form" onSubmit={editSubmitFormHandler}>
           <input
@@ -43,22 +61,22 @@ const EditNote = () => {
               <i class="fa-solid fa-tags operation-btn-2"></i>
             </div>
 
-            <>
+            <div>
               <button
               onClick={() => dispatchNotes({type: "SET_EDIT_NOTES", payload: {Editing: false, currentEditNote: {}}})}
              
-              className="notes-btn"
+              className="notes-btn edit-card"
               
               >Cancel</button>
 
               <button
                 type="submit"
                 disabled={!currentEditNote.title && !currentEditNote.note}
-                className="notes-btn"
+                className="notes-btn edit-card"
               >
                 Add Note
               </button>
-            </>
+            </div>
           </div>
         </form>
       </div>

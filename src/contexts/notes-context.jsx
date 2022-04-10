@@ -17,10 +17,10 @@ function notesReducer(notesState, { type, payload }) {
     case "INITIAL_RENDER_NOTES":
       return { ...notesState, notesList: payload.notesList };
 
-    case "EDIT_NOTES":
-      return { ...notesState, notesList: payload.notesList };
+    case "SET_NOTES":
+      return { ...notesState, notesList: payload.notesList };  //This sets the notes in note card to be edited later using set_edit_notes
 
-      //for editing the note after it has been created
+      //for editing the note after it has been created and forms a modal
 
       case "SET_EDIT_NOTES":
         return {...notesState, Editing: payload.Editing, currentEditNote: payload.currentEditNote};
@@ -36,8 +36,6 @@ function NotesProvider({ children }) {
   const {
     auth: { token },
   } = useAuth();
-
-  ///reducer logic will come here
 
   const [notesState, dispatchNotes] = useReducer(notesReducer, {
     notesList: [],
@@ -83,7 +81,7 @@ function NotesProvider({ children }) {
           if (status === 201) {
             dispatchNotes({
               type: "ADD_NEW_NOTE",
-              payload: { notesList: data.notes },
+              payload: { notesList: data.notes }, // we add it to the notelist and later map the notelist to show all the notes
             });
           }
         } catch (err) {
@@ -106,14 +104,25 @@ function NotesProvider({ children }) {
   //function to editnote
 
   function editNote(currentNote) {
+
+    console.log(currentNote, "here"); // the currentedit note from the editnote component appears here and gets posted to the server
+    
     if (token) {
       (async function () {
         try {
-          const { status, data } = await editNoteServices({ currentNote, token });
+          console.log(token);
+          const { status, data } = await editNoteServices( currentNote, token );
+
+          
+
+          console.log(data, "hi");
+          console.log(status, "neog");
+
 
           if (status === 201) {
+            console.log("cominh");
             dispatchNotes({
-              type: "EDIT_NOTES",
+              type: "SET_NOTES",
               payload: {
                 notesList: data.notes,
               },
@@ -128,13 +137,23 @@ function NotesProvider({ children }) {
 
   //service
 
-  function editNoteServices({ currentNote, token }) {
-    return axios.post(
-      `/api/notes/${currentNote._id}`,
-      { notes: currentNote },
-      { headers: { authorization: token } }
-    );
-  }
+function editNoteServices( currentNote, token ) {
+  // console.log(currentNote, "from ser");
+  console.log(currentNote._id, "id");
+  console.log("bug resolved");
+return axios.post(
+
+    `/api/notes/${currentNote._id}`,
+    { note: currentNote },
+    { headers: { authorization: token } }
+  );  
+}
+
+
+
+  
+
+
 
   return (
     <NotesContext.Provider value={{ dispatchNotes, addNewNote, editNote, notesState }}>
