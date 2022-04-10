@@ -16,7 +16,7 @@ const EditNote = () => {
 
   const editSubmitFormHandler = (e) => {
     e.preventDefault();
-    console.log(currentEditNote, "done");
+    // console.log(currentEditNote, "done");
     if (currentEditNote.title.trim() || currentEditNote.note.trim()) {
       editNote(currentEditNote); //edit note handler is triggered and the edited note gets posted to backend
 
@@ -26,7 +26,7 @@ const EditNote = () => {
         payload: { Editing: false, currentEditNote: { title: "", note: "" } },
       }); //this sets the edited note in the view after the modal disappears
 
-      console.log(currentEditNote, "NOTE");
+      // console.log(currentEditNote, "NOTE");
     }
   };
 

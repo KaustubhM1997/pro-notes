@@ -63,7 +63,7 @@ function NotesProvider({ children }) {
             });
           }
         } catch (err) {
-          console.log(err);
+          console.error(err);
         }
       })(); //IIFE
     }
@@ -90,7 +90,7 @@ function NotesProvider({ children }) {
             });
           }
         } catch (err) {
-          console.log(err);
+          console.error(err);
         }
       })();
     }
