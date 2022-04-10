@@ -86,12 +86,89 @@
 }
 
 .link-style {
+  text-decoration: none;
+}
 
-    text-decoration: none;
+.note-wrapper {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 2rem 0;
+}
+
+.notes-input-form {
+  box-shadow: var(--full-box-shadow);
+  width: 35rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.8rem;
+}
+
+.notes-input-form input {
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.notes-input-form textarea {
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+  outline: none;
+  resize: none;
+  height: 6vh;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.operations .operation-btn-2 {
+  margin-left: 2rem;
+}
+
+.operations .operation-btn-2,
+.operation-btn {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.notes-btn {
+  padding: 0.4rem;
+  border: none;
+  color: var(--color-white);
+  background-color: var(--primary-color);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.notes-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+notes-btn:disabled {
+  cursor: not-allowed;
+  color: var(--secondary-color);
+  font-weight: lighter;
 }
 
 @media only screen and (max-width: 931px) {
   .nav-input {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 695px) {
+  .aside-wrapper {
     display: none;
   }
 }
