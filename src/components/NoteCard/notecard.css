@@ -1,76 +1,62 @@
 .main-note-card-wrapper {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  border-radius: 0.3rem;
+  background-color: var(--color-white);
+  word-break: break-all;
+  padding: 0.5rem;
+  cursor: pointer;
 
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgrey;
-    border-radius: 0.3rem;
-    background-color: var(--color-white);
-    word-break: break-all; 
-    padding: 0.5rem;
-    cursor: pointer;
-    
-    /* this prevents word overflow */
+  /* this prevents word overflow */
 }
-
 
 .note-card-footer {
-
-    display: flex;
-    justify-content: space-between;
-    
+  display: flex;
+  justify-content: space-between;
 }
 
-
- .note-card-content-wrapper {
-
-    display: flex;
-    flex-direction: column;
+.note-card-content-wrapper {
+  display: flex;
+  flex-direction: column;
 }
-
 
 .note-card-title-pin {
-
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-note-card-wrapper:hover {
-    box-shadow: var(--full-box-shadow);
+  box-shadow: var(--full-box-shadow);
 }
 
 .main-note-card-wrapper:active {
-
-    transform: scale(0.99);
+  transform: scale(0.99);
 }
 
 .notes-title {
-
-    font-size: 1rem;
-    font-weight: bold;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .notes-text {
-
-    word-break: break-all;
-    display: flex;
-    align-items: flex-start;
-    margin: 0.7rem 0 1.4rem 0;
+  word-break: break-all;
+  display: flex;
+  align-items: flex-start;
+  margin: 0.7rem 0 1.4rem 0;
 }
 
 .note-card-btn {
-
-    margin-left: 0.5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .pinned-note {
-
-    height: 1.5rem;
-    width: 1.5rem;
-    cursor: pointer;
-    border: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  border: none;
 }
-

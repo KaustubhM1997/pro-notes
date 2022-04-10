@@ -10,13 +10,17 @@ const dateFormat = () => dayjs().format("DD/MM/YY hh:mm:ss a");
 
 const Home = () => {
   const [input, setInput] = useState(initialData);
-  const textInputRef = useRef(null); // we do this so that it doesn't get lost on re-render. We then pass this as a prop below to the value we want to persist on re-render. 
+  const textInputRef = useRef(null); // we do this so that it doesn't get lost on re-render. We then pass this as a prop below to the value we want to persist on re-render.
 
-  const { addNewNote, notesState: {Editing} } = useNotes();
+  const {
+    addNewNote,
+    notesState: { Editing },
+  } = useNotes();
 
   const submitFormHandler = (e) => {
     e.preventDefault();
-    if (input.title.trim() || input.note.trim()) { // we can also choose to trim from either ends //if any of this is true, create a note using the addnewNote function
+    if (input.title.trim() || input.note.trim()) {
+      // we can also choose to trim from either ends //if any of this is true, create a note using the addnewNote function
       addNewNote({ ...input, createdAt: dateFormat() });
       setInput(initialData); //after adding note, the space should clear again
     }
@@ -25,9 +29,8 @@ const Home = () => {
   //THIS IS NOTE INPUT
   return (
     <>
-
-    {/* We put the edit note component here as we want it to appear on the home page */}
-      {Editing? <EditNote />: null}  
+      {/* We put the edit note component here as we want it to appear on the home page */}
+      {Editing ? <EditNote /> : null}
 
       <div className="main-wrapper">
         <div className="note-wrapper">
@@ -37,7 +40,7 @@ const Home = () => {
               placeholder="Title"
               value={input.title}
               onChange={(e) =>
-                setInput((prev) => ({ ...prev, title: e.target.value }))
+                setInput((previous) => ({ ...previous, title: e.target.value }))
               }
             />
 
@@ -46,7 +49,7 @@ const Home = () => {
               placeholder="Take a note..."
               value={input.note}
               onChange={(e) =>
-                setInput((prev) => ({ ...prev, note: e.target.value }))
+                setInput((previous) => ({ ...previous, note: e.target.value }))
               }
             ></textarea>
             <div className="cta-buttons">
