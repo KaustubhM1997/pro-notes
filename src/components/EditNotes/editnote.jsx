@@ -80,7 +80,7 @@ const EditNote = () => {
                 disabled={!currentEditNote.title && !currentEditNote.note}
                 className="notes-btn edit-card"
               >
-                Add Note
+                Save Note
               </button>
             </div>
           </div>

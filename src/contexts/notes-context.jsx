@@ -29,9 +29,26 @@ function notesReducer(notesState, { type, payload }) {
         ...notesState,
         currentEditNote: {
           ...notesState.currentEditNote,
-          [payload.type]: payload.value,
+          [payload.type]: payload.value, //we dynamically set the type as there are two different types of payloads and then we get the corresponding values
         },
       }; // we destructure payload.type from notesState.currenteditnote as there are multiple types (title and notes) and then pass the value
+
+    case "GET_ARCHIVES":
+      return { ...notesState, archivedList: payload.archivedList };
+
+    case "RESTORE_ARCHIVED_NOTES":
+      return {
+        ...notesState,
+        noteList: payload.noteList,
+        archivedList: payload.archivedList,
+      };
+
+    case "MOVE_TO_ARCHIVES":
+      return {
+        ...notesState,
+        archivedList: payload.archivedList,
+        noteList: payload.noteList,
+      };
     default:
       return notesState;
   }
@@ -101,7 +118,7 @@ function NotesProvider({ children }) {
   function postNewNote({ newNote, token }) {
     return axios.post(
       "/api/notes",
-      { note: newNote },
+      { note: newNote }, //note is the predefined key
       { headers: { authorization: token } }
     );
   }
@@ -149,9 +166,123 @@ function NotesProvider({ children }) {
     );
   }
 
+  //Initial render to get archived notes from backend
+
+  useEffect(() => {
+    if (token) {
+      (async function () {
+        try {
+          const { status, data } = await getArchivedNotes(token); //we store the archived notes in terms of status and data
+
+          if (status === 200) {
+            dispatchNotes({
+              type: "ARCHIVES_FROM_BACKEND",
+              payload: { archivedList: data.archives },
+            });
+
+            // console.log(data.archives, "list");
+          }
+        } catch (error) {
+          console.error(err);
+        }
+      })(); //IIFE
+    }
+  }, []);
+
+  //service
+
+  function getArchivedNotes(token) {
+    return axios.get("/api/archives", {
+      headers: {
+        authorization: token,
+      },
+    });
+  }
+
+  async function restoreArchivedNote(e, currentNote) {
+    e.stopPropagation(); //this prevents the same event from happening again
+
+    if (token) {
+      try {
+        const { status, data } = await restoreNoteFromArchives({
+          token,
+          currentNote,
+        });
+
+        if (status === 200) {
+          dispatchNotes({
+            type: "RESTORE_ARCHIVED_NOTES",
+            payload: { noteList: data.notes, archivedList: data.archives },
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  //service
+
+  //here in post, we post the note to notelist, which makes the archivedlist empty, hence we pass the second parameter as an empty object
+
+  function restoreNoteFromArchives({ token, currentNote }) {
+    return axios.post(
+      `/api/archives/restore/${currentNote._id}`,
+      {},
+      {
+        headers: { authorization: token },
+      }
+    );
+  }
+
+  //function to move note to ArchivedList
+
+  async function moveToArchives(e, currentNote) {
+    e.stopPropagation();
+
+    if (token) {
+      try {
+        const { status, data } = await moveNoteToArchive({
+          token,
+          currentNote,
+        });
+
+        console.table(status, data, "yipee");
+
+        if (status === 200) {
+          dispatchNotes({
+            type: "MOVE_TO_ARCHIVES",
+            payload: { archivedList: data.archives, noteList: notes.data },
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  // service
+
+  function moveNoteToArchive(token, currentNote) {
+    axios.post(
+      `/api/notes/archives/${currentNote._id}`,
+      {},
+      {
+        headers: { authorization: token },
+      }
+    );
+  }
+
   return (
     <NotesContext.Provider
-      value={{ dispatchNotes, addNewNote, editNote, notesState }}
+      value={{
+        dispatchNotes,
+        addNewNote,
+        editNote,
+        notesState,
+        restoreArchivedNote,
+        moveToArchives,
+      }}
     >
       {children}
     </NotesContext.Provider>

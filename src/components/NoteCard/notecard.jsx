@@ -4,7 +4,13 @@ import "./notecard.css";
 
 const NoteCard = ({ noteProp }) => {
   const { title, note, createdAt } = noteProp;
-  const { dispatchNotes } = useNotes();
+  const { dispatchNotes, notesState: {archivedList}, restoreArchivedNote, moveToArchives } = useNotes();
+
+
+  //we store all the notes that are in archives in here by comparing the current note id to the id of the note in archives
+
+  const noteInArchives = archivedList.find((eachNote) => eachNote._id === noteProp._id);
+
 
   return (
     <div
@@ -37,7 +43,11 @@ const NoteCard = ({ noteProp }) => {
         <div className="note-card-cta-buttons">
           <i title="Add color" class="fa-solid fa-palette note-card-btn"></i>
           <i title="Add a label" class="fa-solid fa-tags note-card-btn"></i>
+
+          {/* noteprop consists of the current note(s) from notelist */}
           <i
+
+          onClick={(e) => noteInArchives ? restoreArchivedNote(e, noteProp): moveToArchives(e, noteProp)}
             title="Archive note"
             class="fa-solid fa-box-archive note-card-btn"
           ></i>
