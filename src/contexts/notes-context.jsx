@@ -36,18 +36,11 @@ function notesReducer(notesState, { type, payload }) {
     case "GET_ARCHIVES":
       return { ...notesState, archivedList: payload.archivedList };
 
-    case "RESTORE_ARCHIVED_NOTES":
+    case "RESTORE_MOVETO_ARCHIVED_NOTES":
       return {
         ...notesState,
         noteList: payload.noteList,
         archivedList: payload.archivedList,
-      };
-
-    case "MOVE_TO_ARCHIVES":
-      return {
-        ...notesState,
-        archivedList: payload.archivedList,
-        noteList: payload.noteList,
       };
     default:
       return notesState;
@@ -211,7 +204,7 @@ function NotesProvider({ children }) {
 
         if (status === 200) {
           dispatchNotes({
-            type: "RESTORE_ARCHIVED_NOTES",
+            type: "RESTORE_MOVETO_ARCHIVED_NOTES",
             payload: { noteList: data.notes, archivedList: data.archives },
           });
         }
@@ -223,7 +216,7 @@ function NotesProvider({ children }) {
 
   //service
 
-  //here in post, we post the note to notelist, which makes the archivedlist empty, hence we pass the second parameter as an empty object
+  //here in post request, we post the note to notelist from archivedlist, which makes the archivedlist empty, hence we pass the second parameter as an empty object
 
   function restoreNoteFromArchives({ token, currentNote }) {
     return axios.post(
@@ -251,8 +244,8 @@ function NotesProvider({ children }) {
 
         if (status === 200) {
           dispatchNotes({
-            type: "MOVE_TO_ARCHIVES",
-            payload: { archivedList: data.archives, noteList: notes.data },
+            type: "RESTORE_MOVETO_ARCHIVED_NOTES",
+            payload: { noteList: data.notes, archivedList: data.archives},
           });
         }
       } catch (err) {
@@ -263,10 +256,13 @@ function NotesProvider({ children }) {
 
   // service
 
-  function moveNoteToArchive(token, currentNote) {
-    axios.post(
+  function moveNoteToArchive({token, currentNote}) {
+    return axios.post(
       `/api/notes/archives/${currentNote._id}`,
-      {},
+      {
+
+        note: currentNote
+      },
       {
         headers: { authorization: token },
       }
